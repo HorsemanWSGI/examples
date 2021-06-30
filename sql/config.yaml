@@ -1,0 +1,18 @@
+sql: !apply:sql_example.sqlsession.SQLAlchemyEngine.from_url
+  name: sql
+  url: sqlite:///example.db
+
+app: !apply:sql_example.app.app_with_utilities
+  sql_engine: !ref <sql>
+
+loaders:
+  - !name:horsebox.utils.modules_loader
+    - !module:sql_example
+  - !name:sql_example.app.app.models.create_all
+    - !ref <sql>
+
+runner: !name:bjoern.run
+  host: 0.0.0.0
+  port: 8080
+  reuse_port: true
+  wsgi_app: !ref <app>

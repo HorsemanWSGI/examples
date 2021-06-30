@@ -1,5 +1,5 @@
 bjoern
--e git+https://github.com/trollfot/horsebox.git#egg=horsebox
--e git+https://github.com/trollfot/horseman.git#egg=horseman
--e git+https://github.com/trollfot/roughrider.routing.git#egg=roughrider.routing
+-e git+git://github.com/HorsemanWSGI/horsebox.git#egg=horsebox
+-e git+git://github.com/HorsemanWSGI/horseman.git#egg=horseman
+-e git+git://github.com/HorsemanWSGI/roughrider.routing.git#egg=roughrider.routing
 -e .

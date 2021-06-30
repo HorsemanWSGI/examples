@@ -7,7 +7,8 @@ version = "0.1"
 install_requires = [
     'chameleon',
     'horseman',
-    'roughrider.routing'
+    'roughrider.routing',
+    'sqlalchemy',
 ]
 
 

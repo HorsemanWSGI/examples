@@ -1,4 +1,4 @@
-import horseman.parsing
+import horseman.parsers
 from horseman.http import Query, Cookies, ContentType
 from roughrider.routing.components import RoutingRequest
 
@@ -14,9 +14,10 @@ class Request(RoutingRequest):
         'environ',
         'method',
         'route',
+        'sql_session',
     )
 
-    def __init__(self, app, environ, route):
+    def __init__(self, app, environ, sql_session, route):
         self._data = ...
         self.app = app
         self.environ = environ
@@ -24,6 +25,7 @@ class Request(RoutingRequest):
         self.route = route
         self.query = Query.from_environ(environ)
         self.cookies = Cookies.from_environ(environ)
+        self.sql_session = sql_session
         if 'CONTENT_TYPE' in self.environ:
             ct = self.environ['CONTENT_TYPE']
             self.content_type = ContentType(ct, *cgi.parse_header(ct))
@@ -41,7 +43,7 @@ class Request(RoutingRequest):
             return self.get_data()
 
         if content_type := self.content_type:
-            self.set_data(horseman.parsing.parse(
+            self.set_data(horseman.parsers.parse(
                 self.environ['wsgi.input'], content_type.raw))
 
         return self.get_data()
