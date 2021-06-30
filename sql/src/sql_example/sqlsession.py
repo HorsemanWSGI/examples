@@ -52,12 +52,10 @@ class SQLAlchemyEngine(NamedTuple):
         except:
             print('An error occured !')
             session.rollback()
+            raise
         finally:
             print('Closing session')
             session.flush()
             session.close()
             if environ is not None:
                 del environ[f'sql.{self.name}']
-
-    def bind(self, base):
-        base.metadata.bind = self.engine

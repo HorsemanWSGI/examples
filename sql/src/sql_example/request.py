@@ -27,8 +27,8 @@ class Request(RoutingRequest):
         self.cookies = Cookies.from_environ(environ)
         self.sql_session = sql_session
         if 'CONTENT_TYPE' in self.environ:
-            ct = self.environ['CONTENT_TYPE']
-            self.content_type = ContentType(ct, *cgi.parse_header(ct))
+            self.content_type = ContentType.from_http_header(
+                self.environ['CONTENT_TYPE'])
         else:
             self.content_type = None
 
@@ -42,8 +42,8 @@ class Request(RoutingRequest):
         if self._data is not ...:
             return self.get_data()
 
-        if content_type := self.content_type:
-            self.set_data(horseman.parsers.parse(
-                self.environ['wsgi.input'], content_type.raw))
+        if self.content_type:
+            self.set_data(horseman.parsers.parser(
+                self.environ['wsgi.input'], self.content_type))
 
         return self.get_data()

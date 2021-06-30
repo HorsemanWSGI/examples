@@ -2,14 +2,9 @@ sql: !apply:sql_example.sqlsession.SQLAlchemyEngine.from_url
   name: sql
   url: sqlite:///example.db
 
-app: !apply:sql_example.app.app_with_utilities
+app: !new:sql_example.app.Application
   sql_engine: !ref <sql>
-
-loaders:
-  - !name:horsebox.utils.modules_loader
-    - !module:sql_example
-  - !name:sql_example.app.app.models.create_all
-    - !ref <sql>
+  models: !name:sql_example.models.registry
 
 runner: !name:bjoern.run
   host: 0.0.0.0

@@ -9,6 +9,8 @@ install_requires = [
     'horseman',
     'roughrider.routing',
     'sqlalchemy',
+    'wtforms',
+    'wtforms-sqlalchemy'
 ]
 
 
