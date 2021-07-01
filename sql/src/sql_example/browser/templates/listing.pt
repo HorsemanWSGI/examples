@@ -1,0 +1,32 @@
+<div metal:use-macro="layout.macros['main']">
+  <div metal:fill-slot="content">
+    <h2>Users</h2>
+    <p>
+      <i class="uil uil-user-plus"></i>
+      <a href="/new">Add a new user</a>
+    </p>
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr tal:repeat="user users">
+          <td>
+            <i class="uil uil-user"></i> ${user.id}
+          </td>
+          <td>
+            <a href="/${user.id}/edit">${user.name}</a>
+          </td>
+          <td>
+            <a href="/${user.id}/delete">
+              <i class="uil uil-trash-alt"></i>
+              delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

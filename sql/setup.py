@@ -8,8 +8,8 @@ install_requires = [
     'chameleon',
     'horseman',
     'roughrider.routing',
+    'roughrider.sqlalchemy',
     'sqlalchemy',
-    'wtforms',
     'wtforms-sqlalchemy'
 ]
 

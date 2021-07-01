@@ -1,0 +1,24 @@
+<html metal:define-macro="main">
+  <head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>My SQL Application</h1>
+      <div class="row">
+        <div metal:define-slot="content"
+             class="column column-80"></div>
+      </div>
+    </div>
+  </body>
+</html>
