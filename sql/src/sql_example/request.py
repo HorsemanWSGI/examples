@@ -6,7 +6,7 @@ from roughrider.routing.components import RoutingRequest
 class Request(RoutingRequest):
 
     __slots__ = (
-        '_data'
+        '_data',
         'app',
         'cookies',
         'query',
@@ -38,6 +38,6 @@ class Request(RoutingRequest):
 
         if self.content_type:
             self._data = horseman.parsers.parser(
-                self.environ['wsgi.input'], self.content_type))
+                self.environ['wsgi.input'], self.content_type)
 
         return self._data
