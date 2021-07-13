@@ -32,18 +32,12 @@ class Request(RoutingRequest):
         else:
             self.content_type = None
 
-    def set_data(self, data):
-        self._data = data
-
-    def get_data(self):
-        return self._data
-
     def extract(self):
         if self._data is not ...:
-            return self.get_data()
+            return self._data()
 
         if self.content_type:
-            self.set_data(horseman.parsers.parser(
+            self._data = horseman.parsers.parser(
                 self.environ['wsgi.input'], self.content_type))
 
-        return self.get_data()
+        return self._data
