@@ -26,8 +26,8 @@ setup(
     url='http://www.example.com',
     download_url='',
     description='Sample Horseman SQL Application',
-    long_description=(open("README.txt").read() + "\n" +
-                      open(os.path.join("docs", "HISTORY.txt")).read()),
+    long_description=(open("README.rst").read() + "\n" +
+                      open(os.path.join("docs", "HISTORY.rst")).read()),
     license='ZPL',
     classifiers=[
         'Environment :: Web Environment',
