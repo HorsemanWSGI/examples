@@ -5,12 +5,13 @@ from setuptools import setup, find_packages
 version = "0.1"
 
 install_requires = [
+    'alchemyjsonschema',
     'chameleon',
     'horseman',
     'roughrider.routing',
     'roughrider.sqlalchemy',
     'sqlalchemy',
-    'wtforms-sqlalchemy'
+    'wtforms-sqlalchemy',
 ]
 
 
