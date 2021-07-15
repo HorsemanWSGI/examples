@@ -8,6 +8,7 @@ install_requires = [
     'alchemyjsonschema',
     'chameleon',
     'horseman',
+    'jsonschema',
     'roughrider.routing',
     'roughrider.sqlalchemy',
     'sqlalchemy',
