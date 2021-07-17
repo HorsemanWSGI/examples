@@ -1,0 +1,17 @@
+sql: !apply:roughrider.sqlalchemy.component.SQLAlchemyEngine.from_url
+  name: sql
+  url: sqlite:///example.db
+
+app: !new:sql_example.app.Application
+  sql_engine: !ref <sql>
+  models: !name:sql_example.models.registry
+
+loaders:
+  - !name:horsebox.utils.modules_loader
+    - !module:sql_example.browser
+
+runner: !name:bjoern.run
+  host: 0.0.0.0
+  port: 8080
+  reuse_port: true
+  wsgi_app: !ref <app>
