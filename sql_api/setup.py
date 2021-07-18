@@ -6,9 +6,11 @@ version = "0.1"
 
 install_requires = [
     'alchemyjsonschema',
+    'apispec',
     'chameleon',
     'horseman',
     'jsonschema',
+    'roughrider.cors',
     'roughrider.routing',
     'roughrider.sqlalchemy',
     'sqlalchemy',

@@ -9,6 +9,7 @@
       <thead>
         <th>Id</th>
         <th>Name</th>
+        <th>Link</th>
         <th>Delete</th>
       </thead>
       <tbody>
@@ -18,6 +19,12 @@
           </td>
           <td>
             <a href="/${user.id}/edit">${user.name}</a>
+          </td>
+          <td>
+            <a href="/${user.id}/view">
+              <i class="uil uil-eye"></i>
+              view
+            </a>
           </td>
           <td>
             <a href="/${user.id}/delete">

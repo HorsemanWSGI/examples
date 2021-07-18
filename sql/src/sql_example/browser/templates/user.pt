@@ -1,0 +1,17 @@
+<div metal:use-macro="layout.macros['main']">
+  <div metal:fill-slot="content">
+    <h1>${user.name}</h1>
+
+    <h2>Data</h2>
+    <pre>${format(user.dict())}</pre>
+
+    <h2>Direct schema</h2>
+    <pre>${format(schema.basic)}</pre>
+
+    <h2>Relational schema</h2>
+    <pre>${format(schema.relational)}</pre>
+
+    <h2>Structural schema</h2>
+    <pre>${format(schema.structural)}</pre>
+  </div>
+</div>
