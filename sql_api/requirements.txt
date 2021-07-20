@@ -1,7 +1,7 @@
 bjoern
 git+git://github.com/HorsemanWSGI/horsebox.git#egg=horsebox
-git+git://github.com/HorsemanWSGI/horseman.git#egg=horseman
-git+git://github.com/HorsemanWSGI/roughrider.routing.git#egg=roughrider.routing
+-e git+git://github.com/HorsemanWSGI/horseman.git#egg=horseman
+-e git+git://github.com/HorsemanWSGI/roughrider.routing.git@route_endpoint#egg=roughrider.routing
 -e git+git://github.com/HorsemanWSGI/roughrider.cors.git#egg=roughrider.cors
 git+git://github.com/HorsemanWSGI/roughrider.predicate.git#egg=roughrider.predicate
 git+git://github.com/HorsemanWSGI/roughrider.sqlalchemy.git#egg=roughrider.sqlalchemy

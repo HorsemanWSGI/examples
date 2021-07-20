@@ -9,6 +9,12 @@ from alchemyjsonschema import (
 Base = declarative_base()
 
 
+def create_sql_tables(sqlutil):
+    with sqlutil.session():
+        Base.metadata.bind = sqlutil.engine
+        Base.metadata.create_all()
+
+
 class Schema(NamedTuple):
     basic: Dict
     relational: Dict
