@@ -37,11 +37,12 @@ class APIRoutes(Routes):
                 if operations is not None:
                     ops = load_operations_from_docstring(endpoint.__doc__)
                     if ops:
-                        undefined = set(ops.keys()) - set(
-                            (v.lower() for v in verbs))
+                        undefined = (
+                            set((v.lower() for v in verbs)) - set(ops.keys())
+                        )
                         if undefined:
                             logging.warning(
-                                f"Route {path!r}: openapi is missing "
+                                f"Openapi for {path!r} is missing "
                                 f"def(s) for : {', '.join(undefined)}."
                             )
                         operations.update(ops)
