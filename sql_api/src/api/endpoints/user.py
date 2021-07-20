@@ -28,7 +28,7 @@ class CreateUser(APIView):
             required: true
             content:
               application/json:
-                schema: {$ref: '#/definitions/User'}
+                schema: {$ref: '#/definitions/user'}
           responses:
             201:
               description: The user was created successfully.
