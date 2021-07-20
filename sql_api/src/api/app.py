@@ -29,7 +29,8 @@ class APIRoutes(Routes):
                 )
             else:
                 for name, schema in schemas.items():
-                    self.spec.components.schema(name, schema)
+                    if not name in self.spec.components.schemas:
+                        self.spec.components.schema(name, schema)
         def routing(view):
             operations = {} if openapi else None
             for endpoint, verbs in self.extractor(view, methods):
@@ -40,8 +41,8 @@ class APIRoutes(Routes):
                             (v.lower() for v in verbs))
                         if undefined:
                             logging.warning(
-                                "Openapi is missing definition(s)"
-                                f" for : {', '.join(undefined)}."
+                                f"Route {path!r}: openapi is missing "
+                                f"def(s) for : {', '.join(undefined)}."
                             )
                         operations.update(ops)
 
