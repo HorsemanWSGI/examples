@@ -14,7 +14,6 @@ install_requires = [
     'roughrider.routing',
     'roughrider.sqlalchemy',
     'sqlalchemy',
-    'wtforms-sqlalchemy',
 ]
 
 
